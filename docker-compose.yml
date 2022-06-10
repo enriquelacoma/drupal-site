@@ -11,9 +11,9 @@ services:
     environment:
       DOCUMENT_ROOT: ${PWD}
       # Remove comments XDEBUG_CONFIG, XDEBUG_MODE and PHP_IDE_CONFIG and rebuild the container to enable xdebug.
-      # XDEBUG_CONFIG: "client_host=host.docker.internal" # Mac users.
-      # XDEBUG_MODE: "debug"
-      # PHP_IDE_CONFIG: "serverName=Docker"
+      XDEBUG_CONFIG: "client_host=host.docker.internal" # Mac users.
+      XDEBUG_MODE: "debug"
+      PHP_IDE_CONFIG: "serverName=Docker"
       # For Xdebug setup, run this command in the terminal:
       # For Mac users: sudo ifconfig en0 alias 10.254.254.254 255.255.255.0
   mysql:
