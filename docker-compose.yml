@@ -23,6 +23,10 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - mysql:/var/lib/mysql
+  nvim:
+    image: anatolelucet/neovim:stable
+    volumes:
+      - ${PWD}:${PWD}
 volumes:
   data:
   mysql:
