@@ -19,8 +19,12 @@
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drupal/examples": "^3.0",
         "drush/drush": "^11.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6",
+        "drupal/coder": "^8.3.7",
+        "phpmd/phpmd": "^2.12"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -32,6 +36,7 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-project-message": true
         }
     },
