@@ -6,6 +6,8 @@ services:
     working_dir: ${PWD}
     volumes:
       - ${PWD}:${PWD} 
+    env_file:
+      - .env
     environment:
       # Remove comments XDEBUG_CONFIG, XDEBUG_MODE and PHP_IDE_CONFIG and rebuild the container to enable xdebug.
       XDEBUG_CONFIG: "client_host=host.docker.internal" # Mac users.
@@ -51,11 +53,13 @@ services:
   #    container_name: "${PROJECT_NAME}_apache"
     depends_on:
       - php
+    env_file:
+      - .env
     environment:
       APACHE_INDEXES_ENABLED: 1
       APACHE_DOCUMENT_ROOT: ${PWD}
       APACHE_LOG_LEVEL: debug
-      APACHE_VHOST_PRESET: ${PWD}
+      APACHE_VHOST_PRESET: php
   #      APACHE_BACKEND_HOST: php
   #      APACHE_VHOST_PRESET: php
   #      APACHE_DOCUMENT_ROOT: /var/www/html/web
@@ -65,12 +69,13 @@ services:
   #    - drupal:/var/www/html
   #    labels:
   #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
-  
   mariadb:
     image: wodby/mariadb:$MARIADB_TAG
     # container_name: "${PROJECT_NAME}_mariadb"
     #container_name: "${PROJECT_NAME}_mariadb"
     stop_grace_period: 30s
+    env_file:
+      - .env
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       # MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
