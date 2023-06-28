@@ -6,10 +6,10 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ${PWD}:${PWD} # Non Mac users.
+      - ${PWD}:${PWD}
     environment:
       DOCUMENT_ROOT: ${PWD}
-      XDEBUG_CONFIG: "client_host=host.docker.internal" # Mac users.
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
       XDEBUG_MODE: "debug"
       PHP_IDE_CONFIG: "serverName=Docker"
   mysql:
