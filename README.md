@@ -1,9 +1,12 @@
-# Installing drupal
+# How to install
+1. Run: docker-compose up -d
+2. Run: docker-compose exec web bash
+3. Run: drush si standard --db-url=mysql://root:@mysql/drupal
+Access the site with the url: http://localhost:8080/
 
-* Create db drupal
-* drush si standard --db-url=mysql://root:@mysql/drupal
-* phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml [path]
-* vendor/bin/phpstan analyse --memory-limit=1G [path]
+# How to run code analysis tools
+First run "docker-compose exec web bash" to enter the web container
+
 * list test on core:
   * vendor/bin/phpunit web/core/ --list-groups
 * run phpcs for your custom modules
