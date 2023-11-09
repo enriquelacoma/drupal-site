@@ -1,0 +1,12 @@
+parameters:
+  level: '1'
+  paths:
+    - lib
+    - src
+  excludePaths:
+    - dist
+    - vendor
+    - */node_modules/*
+  ignoreErrors:
+    - '#^Unsafe usage of new static#'
+    - '#^Call to deprecated method loadRevision#'

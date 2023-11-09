@@ -1,4 +1,4 @@
-<phpunit bootstrap="tests/bootstrap.php" colors="true"
+<phpunit bootstrap="web/core/tests/bootstrap.php" colors="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true"
