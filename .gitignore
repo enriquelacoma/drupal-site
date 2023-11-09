@@ -36,3 +36,7 @@
 /web/robots.txt
 /web/update.php
 /web/web.config
+
+# Ignore phpunit files
+.phpunit.result.cache
+browser_output/

@@ -10,8 +10,7 @@
   <arg name="colors"/>
   <arg value="p"/>
   <!-- Files to check. -->
-  <file>./lib</file>
-  <file>./resources</file>
+  <file>./web/modules/custom</file>
   <!-- Exclude patterns. -->
   <exclude-pattern>dist/</exclude-pattern>
   <exclude-pattern>.cache/</exclude-pattern>
@@ -22,5 +21,4 @@
   <exclude-pattern>*.min.css</exclude-pattern>
   <exclude-pattern>*.min.js</exclude-pattern>
   <!-- Add your custom rules after this line. -->
-  <exclude-pattern>resources/solr/conf/*</exclude-pattern>
 </ruleset>
