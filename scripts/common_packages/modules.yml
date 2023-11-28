@@ -1,0 +1,18 @@
+project:
+  root_path: /home/enrique/drupal-site-dev
+  dependencies:
+    tools:
+      - drush
+      - composer
+packages:
+  composer-patches:
+    install: true
+    composer_package: cweagans/composer-patches
+    version: ^1.6
+  admin_toolbar:
+    install: true
+    import_config: true
+    composer_package: drupal/admin_toolbar
+    version: ^3.4
+    patches:
+      - https://www.drupal.org/files/issues/2023-10-19/3393220-6.patch

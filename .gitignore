@@ -40,3 +40,6 @@
 # Ignore phpunit files
 .phpunit.result.cache
 browser_output/
+
+# Ignore docker custom configurations
+docker-compose.*.yml

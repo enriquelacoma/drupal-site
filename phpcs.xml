@@ -11,6 +11,7 @@
   <arg value="p"/>
   <!-- Files to check. -->
   <file>./web/modules/custom</file>
+  <file>./scripts</file>
   <!-- Exclude patterns. -->
   <exclude-pattern>dist/</exclude-pattern>
   <exclude-pattern>.cache/</exclude-pattern>
