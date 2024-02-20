@@ -1,19 +1,24 @@
-<phpunit bootstrap="web/core/tests/bootstrap.php" colors="true"
-         beStrictAboutTestsThatDoNotTestAnything="true"
-         beStrictAboutOutputDuringTests="true"
-         beStrictAboutChangesToGlobalState="true"
-         printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter">
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="web/core/tests/bootstrap.php" colors="true" beStrictAboutTestsThatDoNotTestAnything="true" beStrictAboutOutputDuringTests="true" beStrictAboutChangesToGlobalState="true" printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory>./web/modules</directory>
+    </include>
+  </coverage>
+  <php>
+    <!-- Set error reporting to E_ALL. -->
+    <ini name="error_reporting" value="32767"/>
+    <!-- Do not limit the amount of memory tests take to run. -->
+    <ini name="memory_limit" value="-1"/>
+    <!-- Example SIMPLETEST_BASE_URL value: http://localhost -->
+    <env name="SIMPLETEST_BASE_URL" value="http://web:8080/web"/>
+    <!-- Example SIMPLETEST_DB value: mysql://username:password@localhost/databasename#table_prefix -->
+    <env name="SIMPLETEST_DB" value="mysql://root:@mysql:3306/drupal"/>
+    <!-- Example BROWSERTEST_OUTPUT_DIRECTORY value: /path/to/webroot/sites/simpletest/browser_output -->
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="browser_output"/>
+    <!--env name="MINK_DRIVER_ARGS_WEBDRIVER" value="[&quot;chrome&quot;, null, &quot;http://selenium:4444/wd/hub&quot;]"/-->
+    <env name="MINK_DRIVER_ARGS_WEBDRIVER" value='["chrome", {"browserName":"chrome","chromeOptions":{"w3c": false, "args":["--no-sandbox", "--start-maximized", "--disable-gpu", "--window-size=1280,800", "--disable-dev-shm-usage", "--disable-setuid-sandbox", "--disable-web-security", "--DNS-prefetch-disable", "--disable-translate", "--ignore-certificate-errors", "--test-type", "--disable-extensions", "--incognito", "--disable-infobars"]}}, "http://selenium:4444/wd/hub"]'/>
 
-<php>
-  <!-- Set error reporting to E_ALL. -->
-  <ini name="error_reporting" value="32767"/>
-  <!-- Do not limit the amount of memory tests take to run. -->
-  <ini name="memory_limit" value="-1"/>
-  <!-- Example SIMPLETEST_BASE_URL value: http://localhost -->
-  <env name="SIMPLETEST_BASE_URL" value="http://localhost:8000/web"/>
-  <!-- Example SIMPLETEST_DB value: mysql://username:password@localhost/databasename#table_prefix -->
-  <env name="SIMPLETEST_DB" value="mysql://root:@mysql/drupal"/>
-  <!-- Example BROWSERTEST_OUTPUT_DIRECTORY value: /path/to/webroot/sites/simpletest/browser_output -->
-  <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="browser_output"/>
-</php> 
+  </php>
+  <!-- Filter for coverage reports. -->
 </phpunit>

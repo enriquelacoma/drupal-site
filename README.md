@@ -10,8 +10,8 @@ First run "docker-compose exec web bash" to enter the web container
 * list test on core:
   * vendor/bin/phpunit web/core/ --list-groups
 * run phpcs for your custom modules
-  * vendor/bin/phpcs
+  * ./vendor/bin/phpcs --standard=Drupal,DrupalPractice [path] --extensions=php,mod
 * run phpstan for your custom modules
   * vendor/bin/phpstan
 * run phpmd for your custom modules
-  * vendor/bin/phpmd web/modules/custom/ text phpmd.xml
+  * vendor/bin/phpmd web/modules/custom/ ansi phpmd.xml
