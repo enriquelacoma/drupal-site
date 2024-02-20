@@ -22,18 +22,17 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - mysql:/var/lib/mysql
-  # Spawn a Selenium server which also includes a VNC server on localhost:5900 (the password is "secret")
+  # vnc in http://localhost:7900/
   selenium:
     image: selenium/standalone-chrome:4.1.3
     environment:
-      - DISPLAY=:99
-      - SCREEN_WIDTH=1600
-      - SCREEN_HEIGHT=1200
       - VNC_NO_PASSWORD=1
+      - SCREEN_WIDTH=1000
+      - SCREEN_HEIGHT=575
     ports:
-      - "5900:5900"
-    expose:
-      - '4444'
+      - 4444:4444
+      - 5900:5900
+      - 7900:7900
     shm_size: 2g
 volumes:
   mysql:
