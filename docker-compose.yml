@@ -22,6 +22,8 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
   # vnc in http://localhost:7900/
   selenium:
     image: selenium/standalone-chrome:4.1.3
