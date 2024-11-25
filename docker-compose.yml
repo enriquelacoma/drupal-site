@@ -1,7 +1,6 @@
-version: '3.7'
 services:
   web:
-    image: registry.fpfis.eu/fpfis/httpd-php:8.1-dev
+    image: fpfis/httpd-php:8.2-dev
     working_dir: ${PWD}
     ports:
       - 8080:8080
@@ -12,11 +11,12 @@ services:
     environment:
       DOCUMENT_ROOT: ${PWD}
       XDEBUG_CONFIG: "client_host=host.docker.internal"
+      # XDEBUG_CONFIG: "client_host=172.18.176.1"
       XDEBUG_SESSION: 1
       PHP_IDE_CONFIG: "serverName=Docker"
       XDEBUG_MODE: "develop, debug"
   mysql:
-    image: percona/percona-server:5.7
+    image: percona/percona-server:8.0
     command: --innodb-log-file-size=1G --max_allowed_packet=1G --innodb-buffer-pool-size=512M --wait_timeout=3000 --net_write_timeout=3000 --log_error_verbosity=3
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -38,3 +38,4 @@ services:
     shm_size: 2g
 volumes:
   mysql:
+  #nameserver 172.27.144.1
